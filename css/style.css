@@ -304,4 +304,19 @@ footer:hover {
         font-size: 60%;
     }
 
+    .email.input {
+        padding-right: 1rem;
+    }
+
+    .title {
+        margin-top: 20rem;
+        text-align: center;
+        padding: 0 ;
+        width: 100vw;
+    }
+
+    h3 {
+        color: black;
+    }
+
 }
