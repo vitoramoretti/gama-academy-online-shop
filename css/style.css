@@ -49,6 +49,7 @@ header {
 .subtitle {
     font-size: .6rem;
     opacity: .5;
+    padding-bottom: 1rem;
 }
 
 .container {
@@ -151,10 +152,11 @@ strong {
 
 p {
     opacity: .8;
-    padding-bottom: .6rem;
+    padding-bottom: 1.9rem;
 }
 
-.button {
+
+label {
     cursor: pointer;
     border: 0;
     background: var(--off-white);
@@ -166,40 +168,13 @@ p {
     position: relative;
     z-index: 2;
     box-shadow: 0 1px 5px rgba(0, 0, 0, .3);
+    transition: background 300ms ease-in-out;
 }
 
-.button + .button {
-    margin-left: 1em;
-}
+label:hover {
+    background: var(--primary-color);
+    color: var(--off-white);
 
-.button::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: calc(100% - 10px);
-    height: 100%;
-    font-weight: 900;
-    border-radius: 1rem 0 0 1rem ;
-    background: var(--secondary-color);
-    z-index: -1;
-    transition: -webkit-transform 200ms ease-in;
-    transition: transform 200ms ease-in;
-    transition: transform 200ms ease-in, -webkit-transform 200ms ease-in;
-}
-
-.button::after {
-    -webkit-transform: scaleX(0);
-            transform: scaleX(0);
-    -webkit-transform-origin: right;
-            transform-origin: right;
-}
-
-.button:hover::after {
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-    -webkit-transform-origin: right;
-            transform-origin: right;
 }
 
 body {
@@ -228,8 +203,9 @@ body {
 }
 
 .container-form {
-    margin: 30rem auto;
-    text-align: center;
+    margin: 1rem auto;
+    margin-top: 2rem;
+    text-align: right;
 }
 
 .container-form input{
@@ -238,22 +214,39 @@ body {
     border-style: none;
 }
 
+
 .email.input {
     border-radius: 1rem 0 0 1rem;
     outline: none;
     padding-right: 15rem;
+    width: calc(50vw - 1rem);
+    opacity: 0;
+    transition: opacity 100ms ease-in;
+}
+
+@keyframes email-focus {
+    from {
+        width: 0;
+    }
+    to {
+        width: 1;
+    }
 }
 
 .email.input:focus {
     border-style: none;
     border: 0;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, .3);
+    opacity: 1;
+    animation-name: email-focus;
+    animation-duration: 250ms;
+    transition-timing-function: ease-in;
 }
 
 .btn {
     border-radius: 0 1rem 1rem 0 ;
-    color: black;
-    background: var(--secondary-color);
+    color: white;
+    background: var(--primary-color);
 }
 
 .btn:hover {
@@ -271,10 +264,12 @@ body {
 }
 
 footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 25px;
     text-align: center;
-    margin-top: 20rem;
     background: rgba(0, 0, 0, .1);
-    padding: 1rem;
     opacity: .8;
 }
 
@@ -299,7 +294,7 @@ footer:hover {
     border-width: 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
     html {
         font-size: 60%;
     }
@@ -317,6 +312,10 @@ footer:hover {
 
     h3 {
         color: black;
+    }
+
+    .container-form {
+        text-align: center;
     }
 
 }
