@@ -297,7 +297,7 @@ footer:hover {
     border-width: 0;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1080px) {
     html {
         font-size: 60%;
     }
@@ -309,8 +309,10 @@ footer:hover {
     .title {
         margin-top: 10rem;
         text-align: center;
-        padding: 0 ;
+        padding: 2rem ;
         width: 100vw;
+        background: rgba(255, 255, 255, 0.3);
+        transition: background 500ms ease-in-out;
     }
 
     h3 {
